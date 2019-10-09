@@ -22,29 +22,35 @@ class VBTeamManager {
         }
     }
     
+    // saves team if name isn't already taken
     static func saveTeam(name: String, coach: String, container: VBPersistentContainer) -> Bool {
-        if (isTeamNameTaken(name: name, context: container.viewContext)) {
-            return false
-        }
-        
-        let team = NSEntityDescription.insertNewObject(forEntityName: "VBTeam", into: container.viewContext) as! VBTeamMO
-        team.name = name
-        team.coach = coach
+        let team = teamWithUniqueName(name: name, coach: coach, context: container.viewContext)
         container.saveContext()
-        return true
+        return (team != nil)
     }
     
-    static private func isTeamNameTaken(name: String, context: NSManagedObjectContext) -> Bool {
-        let teams = VBTeamManager.allTeams(context: context)
-        
-        var nameIsTaken = false
-        for team in teams {
-            if (team.name == name) {
-                nameIsTaken = true
-                break
-            }
+    // returns new VBteamMO if name isn't already taken
+    static private func teamWithUniqueName(name: String, coach: String, context: NSManagedObjectContext) -> VBTeamMO? {
+        if (getTeamWithName(name: name, context: context) != nil) {
+            return nil
+        } else {
+            let team = NSEntityDescription.insertNewObject(forEntityName: "VBTeam", into: context) as! VBTeamMO
+            team.name = name
+            team.coach = coach
+            return team
         }
+    }
+    
+    // returns team with a given name if it already exists, nil otherwise
+    static private func getTeamWithName(name: String, context: NSManagedObjectContext) -> VBTeamMO? {
+        let request: NSFetchRequest<VBTeamMO> = VBTeamMO.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", name)
         
-        return nameIsTaken
+        do {
+            let fetchedTeams = try context.fetch(request) as [VBTeamMO]
+            return fetchedTeams.first
+        } catch {
+            fatalError("Failed to fetch teams: \(error)")
+        }
     }
 }
