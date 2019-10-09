@@ -22,4 +22,8 @@ struct K {
     struct SegueID {
         static let menu_createTeam = "Menu_CreateTeam"
     }
+    
+    struct UserDefaultsKeys {
+        static let currentTeamName = "currentTeamNameKey"
+    }
 }

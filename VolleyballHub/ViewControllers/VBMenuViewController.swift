@@ -43,10 +43,7 @@ class VBMenuViewController: VBBaseViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         
-        let teams = VBTeamManager.allTeams(context: container!.viewContext)
-        if (teams.count > 0) {
-            self.teamNameLabel.text = teams[0].name
-        }
+        self.teamNameLabel.text = VBTeamManager.getCurrentTeam(context: container!.viewContext)?.name
     }
     
     // MARK: tableView

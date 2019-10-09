@@ -10,6 +10,19 @@ import UIKit
 import CoreData
 
 class VBTeamManager {
+    
+    static func getCurrentTeam(context: NSManagedObjectContext) -> VBTeamMO? {
+        let currentTeamName = UserDefaults.standard.string(forKey: K.UserDefaultsKeys.currentTeamName)
+        if (currentTeamName == nil) {
+            return nil
+        } else {
+            return getTeamWithName(name: currentTeamName!, context: context)
+        }
+    }
+    
+    static func setCurrentTeam(name: String) {
+        UserDefaults.standard.set(name, forKey: K.UserDefaultsKeys.currentTeamName)
+    }
 
     static func allTeams(context: NSManagedObjectContext) -> [VBTeamMO] {
         let request: NSFetchRequest<VBTeamMO> = VBTeamMO.fetchRequest()
@@ -22,11 +35,15 @@ class VBTeamManager {
         }
     }
     
-    // saves team if name isn't already taken
+    // saves team if name isn't already taken, and sets it to the current team
     static func saveTeam(name: String, coach: String, container: VBPersistentContainer) -> Bool {
         let team = teamWithUniqueName(name: name, coach: coach, context: container.viewContext)
-        container.saveContext()
-        return (team != nil)
+        let success = (team != nil)
+        if (success) {
+            container.saveContext()
+            setCurrentTeam(name: name)
+        }
+        return success
     }
     
     // returns new VBteamMO if name isn't already taken
