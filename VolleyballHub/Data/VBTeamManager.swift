@@ -35,6 +35,25 @@ class VBTeamManager {
         }
     }
     
+    // returns an array all team names
+    static func allTeamNames(context: NSManagedObjectContext) -> [String] {
+        let request: NSFetchRequest<NSFetchRequestResult> = VBTeamMO.fetchRequest()
+        request.resultType = NSFetchRequestResultType.dictionaryResultType
+        request.returnsDistinctResults = true
+        request.propertiesToFetch = ["name"]
+        
+        do {
+            let fetchedNamesDict = try context.fetch(request) as! [NSDictionary]
+            var names: [String] = []
+            for dict in fetchedNamesDict {
+                names.append(dict.value(forKey: "name") as! String)
+            }
+            return names
+        } catch {
+            fatalError("Failed to fetch teams: \(error)")
+        }
+    }
+    
     // saves team if name isn't already taken, and sets it to the current team
     static func saveTeam(name: String, coach: String, container: VBPersistentContainer) -> Bool {
         let team = teamWithUniqueName(name: name, coach: coach, context: container.viewContext)
