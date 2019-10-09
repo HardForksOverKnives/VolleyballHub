@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3802F561233BD15700C67DC6 /* VBTeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802F560233BD15700C67DC6 /* VBTeamManager.swift */; };
 		382B0C0B23335ECF003A4524 /* VolleyballHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 382B0C0923335ECF003A4524 /* VolleyballHub.xcdatamodeld */; };
 		382B0C2E2333FBEE003A4524 /* VBPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382B0C2D2333FBEE003A4524 /* VBPersistentContainer.swift */; };
 		38B5677A232C6DE1007960DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B56779232C6DE1007960DB /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3802F560233BD15700C67DC6 /* VBTeamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTeamManager.swift; sourceTree = "<group>"; };
 		382B0C0A23335ECF003A4524 /* VolleyballHub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VolleyballHub.xcdatamodel; sourceTree = "<group>"; };
 		382B0C2D2333FBEE003A4524 /* VBPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBPersistentContainer.swift; sourceTree = "<group>"; };
 		38B56776232C6DE1007960DB /* VolleyballHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VolleyballHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +68,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		3802F55F233BD0B900C67DC6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3802F560233BD15700C67DC6 /* VBTeamManager.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		38B5676D232C6DE1007960DB = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +95,7 @@
 		38B56778232C6DE1007960DB /* VolleyballHub */ = {
 			isa = PBXGroup;
 			children = (
+				3802F55F233BD0B900C67DC6 /* Data */,
 				3802F55E233BC9A000C67DC6 /* ViewControllers */,
 				382B0C0923335ECF003A4524 /* VolleyballHub.xcdatamodeld */,
 				38B56779232C6DE1007960DB /* AppDelegate.swift */,
@@ -170,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3802F561233BD15700C67DC6 /* VBTeamManager.swift in Sources */,
 				38B56798232FF2C1007960DB /* VBMenuTableViewCell.swift in Sources */,
 				382B0C0B23335ECF003A4524 /* VolleyballHub.xcdatamodeld in Sources */,
 				38B5679A232FF7AC007960DB /* VBConstants.swift in Sources */,

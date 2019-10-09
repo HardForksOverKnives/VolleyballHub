@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FlU-I0-IVK">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -13,12 +13,12 @@
             <objects>
                 <viewController id="cVf-NI-Jsi" customClass="VBMenuViewController" customModule="VolleyballHub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xsO-PB-V06">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yQf-a4-9Hq">
-                                <rect key="frame" x="-300" y="88" width="300" height="774"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="-300" y="50" width="300" height="974"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="nQl-va-cYG"/>
                                 </constraints>
@@ -59,9 +59,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSz-YL-f7V">
+                                <rect key="frame" x="349" y="494" width="70" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="VSz-YL-f7V" firstAttribute="centerX" secondItem="xsO-PB-V06" secondAttribute="centerX" id="8YD-6T-dow"/>
+                            <constraint firstItem="VSz-YL-f7V" firstAttribute="centerY" secondItem="xsO-PB-V06" secondAttribute="centerY" id="Lbw-L8-xhD"/>
                             <constraint firstItem="yQf-a4-9Hq" firstAttribute="leading" secondItem="cfA-a0-Gh8" secondAttribute="leading" constant="-300" id="P1X-Pi-yfe"/>
                             <constraint firstItem="yQf-a4-9Hq" firstAttribute="top" secondItem="cfA-a0-Gh8" secondAttribute="top" id="VAw-jT-dTc"/>
                             <constraint firstItem="cfA-a0-Gh8" firstAttribute="bottom" secondItem="yQf-a4-9Hq" secondAttribute="bottom" id="mi0-X7-MJo"/>
@@ -78,6 +86,7 @@
                     <connections>
                         <outlet property="leadingConstraint" destination="P1X-Pi-yfe" id="5m8-Mn-1bI"/>
                         <outlet property="tableView" destination="yQf-a4-9Hq" id="TJY-0Q-ZgP"/>
+                        <outlet property="teamNameLabel" destination="VSz-YL-f7V" id="9KZ-cl-ayN"/>
                         <segue destination="VFA-Ed-eIv" kind="show" identifier="Menu_CreateTeam" id="u8O-ru-He7"/>
                     </connections>
                 </viewController>
@@ -90,24 +99,24 @@
             <objects>
                 <viewController id="S3G-0Z-n3H" customClass="VBFullCourtViewController" customModule="VolleyballHub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SL4-P8-3I6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KT2-TT-VcV">
-                                <rect key="frame" x="23" y="80" width="368" height="736"/>
+                                <rect key="frame" x="153.5" y="51" width="461" height="922"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Rx-ls-7lb" userLabel="middleLIne">
-                                        <rect key="frame" x="0.0" y="364" width="368" height="8"/>
+                                        <rect key="frame" x="0.0" y="456" width="461" height="10"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRJ-GU-Di2">
-                                        <rect key="frame" x="0.0" y="0.0" width="368" height="372"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="461" height="466"/>
                                         <connections>
                                             <segue destination="nxD-5n-nPR" kind="embed" identifier="side1EmbedSegue" id="rns-JR-C4V"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQD-dc-xmo">
-                                        <rect key="frame" x="0.0" y="364" width="368" height="372"/>
+                                        <rect key="frame" x="0.0" y="456" width="461" height="466"/>
                                         <connections>
                                             <segue destination="nxD-5n-nPR" kind="embed" id="44f-SA-0fJ"/>
                                         </connections>
@@ -159,17 +168,17 @@
             <objects>
                 <viewController storyboardIdentifier="vbcreateteamvc" id="VFA-Ed-eIv" customClass="VBCreateTeamViewController" customModule="VolleyballHub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qdF-7i-plL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvv-hc-Yvu">
-                                <rect key="frame" x="20" y="108" width="118.5" height="24"/>
+                                <rect key="frame" x="20" y="70" width="118.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Average Joe's" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uHp-dr-ZZW">
-                                <rect key="frame" x="20" y="137" width="374" height="34"/>
+                                <rect key="frame" x="20" y="99" width="728" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -177,13 +186,13 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coach Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Raq-r1-umo">
-                                <rect key="frame" x="20" y="201" width="118.5" height="24"/>
+                                <rect key="frame" x="20" y="163" width="118.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Patches" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ad-Ao-Eba">
-                                <rect key="frame" x="20" y="230" width="374" height="34"/>
+                                <rect key="frame" x="20" y="192" width="728" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -191,7 +200,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNi-8J-8HT">
-                                <rect key="frame" x="20" y="304" width="374" height="64.5"/>
+                                <rect key="frame" x="20" y="266" width="728" height="81"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
@@ -234,7 +243,7 @@
             <objects>
                 <viewController id="ZvE-zc-dZy" customClass="VBAddPlayerViewController" customModule="VolleyballHub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uaL-hT-6l6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vRR-sN-Dgv"/>
@@ -249,39 +258,39 @@
             <objects>
                 <viewController id="nxD-5n-nPR" customClass="VBHalfCourtViewController" customModule="VolleyballHub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nW2-du-NZP">
-                        <rect key="frame" x="0.0" y="0.0" width="368" height="372"/>
+                        <rect key="frame" x="0.0" y="0.0" width="461" height="466"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XO7-vY-5u9">
-                                <rect key="frame" x="0.0" y="122" width="368" height="4"/>
+                                <rect key="frame" x="0.0" y="152.5" width="461" height="5.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Epi-ri-4jq">
-                                <rect key="frame" x="0.0" y="246" width="368" height="4"/>
+                                <rect key="frame" x="0.0" y="308" width="461" height="5.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fih-VZ-B1h">
-                                <rect key="frame" x="0.0" y="368" width="368" height="4"/>
+                                <rect key="frame" x="0.0" y="461" width="461" height="5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJp-0g-evt">
-                                <rect key="frame" x="0.0" y="44" width="368" height="4"/>
+                                <rect key="frame" x="0.0" y="0.0" width="461" height="5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZ3-14-h53">
-                                <rect key="frame" x="0.0" y="44" width="4" height="328"/>
+                                <rect key="frame" x="0.0" y="0.0" width="5" height="466"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evC-V8-ymQ">
-                                <rect key="frame" x="364" y="44" width="4" height="324"/>
+                                <rect key="frame" x="456" y="0.0" width="5" height="461"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rvE-KO-D87">
-                                <rect key="frame" x="4" y="250" width="360" height="118"/>
+                                <rect key="frame" x="5" y="313.5" width="451" height="147.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSU-IV-RXd">
-                                <rect key="frame" x="4" y="48" width="360" height="74"/>
+                                <rect key="frame" x="5" y="5" width="451" height="147.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -339,7 +348,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FlU-I0-IVK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ohw-B0-4M6">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

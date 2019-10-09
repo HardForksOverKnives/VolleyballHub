@@ -17,10 +17,10 @@ class VBCreateTeamViewController: VBBaseViewController {
     var teamName: String?
     var coachName: String?
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        let button1 = UIBarButtonItem(image: UIImage(named: "hamburger"), style: .plain, target: self, action: Selector("action")) // action:#selector(Class.MethodName) for swift 3
 
         self.navigationItem.title = "Create Team"
     }
@@ -38,8 +38,11 @@ class VBCreateTeamViewController: VBBaseViewController {
     @IBAction func saveButtonPressed(_ sender: Any) {
         self.view.endEditing(true)
         if (validateTextFields()) {
-            saveTeam()
-            self.navigationController?.popViewController(animated: true)
+            if (VBTeamManager.saveTeam(name: teamName!, coach: coachName!, container: container!)) {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                showSimpleAlert(title: "Error", body: "Team name is already taken")
+            }
         }
     }
     
@@ -55,13 +58,6 @@ class VBCreateTeamViewController: VBBaseViewController {
         }
         
         return passed
-    }
-    
-    func saveTeam() {
-        let team = NSEntityDescription.insertNewObject(forEntityName: "VBTeam", into: container!.viewContext) as! VBTeamMO
-        team.name = teamName
-        team.coach = coachName
-        container!.saveContext()
     }
     
     
