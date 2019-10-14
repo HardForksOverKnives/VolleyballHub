@@ -23,8 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         //print("SQLite DB file for simulator found here: ", FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).last ?? "Not Found!")
-
+        
         return true
+    }
+    
+    func testfunc() {
+        print("the function worked")
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

@@ -60,16 +60,26 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSz-YL-f7V">
-                                <rect key="frame" x="349" y="494" width="70" height="36"/>
+                                <rect key="frame" x="349" y="238" width="70" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxK-bS-wzW">
+                                <rect key="frame" x="313.5" y="490" width="141" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Create Team"/>
+                                <connections>
+                                    <action selector="createTeamButtonPressed:" destination="cVf-NI-Jsi" eventType="touchUpInside" id="iIU-Aq-BSN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="jxK-bS-wzW" firstAttribute="centerY" secondItem="xsO-PB-V06" secondAttribute="centerY" id="0Ce-pK-a7o"/>
+                            <constraint firstItem="jxK-bS-wzW" firstAttribute="centerX" secondItem="xsO-PB-V06" secondAttribute="centerX" id="2V5-sv-xdG"/>
                             <constraint firstItem="VSz-YL-f7V" firstAttribute="centerX" secondItem="xsO-PB-V06" secondAttribute="centerX" id="8YD-6T-dow"/>
-                            <constraint firstItem="VSz-YL-f7V" firstAttribute="centerY" secondItem="xsO-PB-V06" secondAttribute="centerY" id="Lbw-L8-xhD"/>
+                            <constraint firstItem="VSz-YL-f7V" firstAttribute="centerY" secondItem="xsO-PB-V06" secondAttribute="centerY" multiplier="1:2" id="Lbw-L8-xhD"/>
                             <constraint firstItem="yQf-a4-9Hq" firstAttribute="leading" secondItem="cfA-a0-Gh8" secondAttribute="leading" constant="-300" id="P1X-Pi-yfe"/>
                             <constraint firstItem="yQf-a4-9Hq" firstAttribute="top" secondItem="cfA-a0-Gh8" secondAttribute="top" id="VAw-jT-dTc"/>
                             <constraint firstItem="cfA-a0-Gh8" firstAttribute="bottom" secondItem="yQf-a4-9Hq" secondAttribute="bottom" id="mi0-X7-MJo"/>
@@ -84,10 +94,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="createTeamButton" destination="jxK-bS-wzW" id="Wl4-87-6QS"/>
                         <outlet property="leadingConstraint" destination="P1X-Pi-yfe" id="5m8-Mn-1bI"/>
+                        <outlet property="menuButton" destination="QP4-2l-NBL" id="bUJ-pV-uPe"/>
                         <outlet property="tableView" destination="yQf-a4-9Hq" id="TJY-0Q-ZgP"/>
                         <outlet property="teamNameLabel" destination="VSz-YL-f7V" id="9KZ-cl-ayN"/>
                         <segue destination="VFA-Ed-eIv" kind="show" identifier="Menu_CreateTeam" id="u8O-ru-He7"/>
+                        <segue destination="oOJ-dK-eI6" kind="show" identifier="Menu_SwitchTeam" id="bMd-df-saz"/>
+                        <segue destination="ZvE-zc-dZy" kind="show" identifier="Menu_EditRoster" id="2m2-Zv-nn1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OBC-CZ-OFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -236,7 +250,64 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7b5-PW-NIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3552" y="-151"/>
+            <point key="canvasLocation" x="3563" y="-850"/>
+        </scene>
+        <!--Switch Team View Controller-->
+        <scene sceneID="0Vh-8x-vDa">
+            <objects>
+                <viewController id="oOJ-dK-eI6" customClass="VBSwitchTeamViewController" customModule="VolleyballHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wST-Ss-j1o">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jq4-9F-aem">
+                                <rect key="frame" x="0.0" y="50" width="768" height="974"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="switchTeamCellReuseID" id="sb2-v9-P0d" customClass="VBMenuTableViewCell" customModule="VolleyballHub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="768" height="43"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sb2-v9-P0d" id="xmc-rL-p47">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0m-o4-eGR">
+                                                    <rect key="frame" x="35" y="21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="r0m-o4-eGR" firstAttribute="top" secondItem="xmc-rL-p47" secondAttribute="topMargin" constant="10" id="0d1-nf-iez"/>
+                                                <constraint firstItem="r0m-o4-eGR" firstAttribute="bottom" secondItem="xmc-rL-p47" secondAttribute="bottomMargin" constant="10" id="AvC-TN-wlA"/>
+                                                <constraint firstItem="r0m-o4-eGR" firstAttribute="leading" secondItem="xmc-rL-p47" secondAttribute="leadingMargin" constant="20" id="UzH-Da-0ny"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="label" destination="r0m-o4-eGR" id="3ou-hX-z61"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jq4-9F-aem" firstAttribute="top" secondItem="nUF-Mg-8c2" secondAttribute="top" id="Eau-fP-IHd"/>
+                            <constraint firstItem="nUF-Mg-8c2" firstAttribute="trailing" secondItem="jq4-9F-aem" secondAttribute="trailing" id="mtN-ZT-kty"/>
+                            <constraint firstItem="jq4-9F-aem" firstAttribute="leading" secondItem="nUF-Mg-8c2" secondAttribute="leading" id="o2b-G3-Rzs"/>
+                            <constraint firstItem="nUF-Mg-8c2" firstAttribute="bottom" secondItem="jq4-9F-aem" secondAttribute="bottom" id="t1w-xP-cz2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nUF-Mg-8c2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YFb-3j-Ljy"/>
+                    <connections>
+                        <outlet property="tableView" destination="jq4-9F-aem" id="exB-75-xyy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vcw-Qc-OZ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3540" y="-162"/>
         </scene>
         <!--Add Player View Controller-->
         <scene sceneID="7uw-5z-APl">
@@ -248,10 +319,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vRR-sN-Dgv"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fRk-3h-NHs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kni-bj-VBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4276" y="-153"/>
+            <point key="canvasLocation" x="4920" y="-162"/>
         </scene>
         <!--Half Court View Controller-->
         <scene sceneID="NB0-LA-Wss">

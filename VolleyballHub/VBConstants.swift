@@ -9,21 +9,24 @@
 import Foundation
 
 struct K {
-    struct TableView {
-        static let reuseID = "reuseID"
-        static let text = "text"
-        static let imageName = "image"
-    }
-    
-    struct MenuTableView {
-        static let menuCellReuseID = "menuCellReuseID"
-    }
-    
-    struct SegueID {
-        static let menu_createTeam = "Menu_CreateTeam"
-    }
     
     struct UserDefaultsKeys {
         static let currentTeamName = "currentTeamNameKey"
+    }
+    
+    struct TableView {
+        struct Menu {
+            static let reuseID = "menuCellReuseID"
+            
+            struct SegueID {
+                static let menu_createTeam = "Menu_CreateTeam"
+                static let menu_switchTeam = "Menu_SwitchTeam"
+                static let menu_editRoster = "Menu_EditRoster"
+            }
+        }
+        
+        struct SwitchTeam {
+            static let reuseID = "switchTeamCellReuseID"
+        }
     }
 }

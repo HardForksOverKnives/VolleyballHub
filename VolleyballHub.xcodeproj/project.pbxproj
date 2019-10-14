@@ -10,6 +10,7 @@
 		3802F561233BD15700C67DC6 /* VBTeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802F560233BD15700C67DC6 /* VBTeamManager.swift */; };
 		382B0C0B23335ECF003A4524 /* VolleyballHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 382B0C0923335ECF003A4524 /* VolleyballHub.xcdatamodeld */; };
 		382B0C2E2333FBEE003A4524 /* VBPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382B0C2D2333FBEE003A4524 /* VBPersistentContainer.swift */; };
+		3861E6F6235404F800E08DA9 /* VBTableViewCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861E6F5235404F800E08DA9 /* VBTableViewCellInfo.swift */; };
 		38B5677A232C6DE1007960DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B56779232C6DE1007960DB /* AppDelegate.swift */; };
 		38B5677C232C6DE1007960DB /* VBFullCourtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5677B232C6DE1007960DB /* VBFullCourtViewController.swift */; };
 		38B5677F232C6DE1007960DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B5677D232C6DE1007960DB /* Main.storyboard */; };
@@ -22,12 +23,14 @@
 		38B5679A232FF7AC007960DB /* VBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B56799232FF7AC007960DB /* VBConstants.swift */; };
 		38B5679C23300717007960DB /* VBCreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5679B23300717007960DB /* VBCreateTeamViewController.swift */; };
 		38B567A02332AB0A007960DB /* VBAddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5679F2332AB0A007960DB /* VBAddPlayerViewController.swift */; };
+		38F81FC0234E8B7100EC0A51 /* VBSwitchTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F81FBF234E8B7100EC0A51 /* VBSwitchTeamViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3802F560233BD15700C67DC6 /* VBTeamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTeamManager.swift; sourceTree = "<group>"; };
 		382B0C0A23335ECF003A4524 /* VolleyballHub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VolleyballHub.xcdatamodel; sourceTree = "<group>"; };
 		382B0C2D2333FBEE003A4524 /* VBPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBPersistentContainer.swift; sourceTree = "<group>"; };
+		3861E6F5235404F800E08DA9 /* VBTableViewCellInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTableViewCellInfo.swift; sourceTree = "<group>"; };
 		38B56776232C6DE1007960DB /* VolleyballHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VolleyballHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B56779232C6DE1007960DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38B5677B232C6DE1007960DB /* VBFullCourtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBFullCourtViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		38B56799232FF7AC007960DB /* VBConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBConstants.swift; sourceTree = "<group>"; };
 		38B5679B23300717007960DB /* VBCreateTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBCreateTeamViewController.swift; sourceTree = "<group>"; };
 		38B5679F2332AB0A007960DB /* VBAddPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBAddPlayerViewController.swift; sourceTree = "<group>"; };
+		38F81FBF234E8B7100EC0A51 /* VBSwitchTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBSwitchTeamViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 				38B56793232F0D7E007960DB /* VBBaseViewController.swift */,
 				38B56795232F4FA9007960DB /* VBMenuViewController.swift */,
 				38B5679B23300717007960DB /* VBCreateTeamViewController.swift */,
+				38F81FBF234E8B7100EC0A51 /* VBSwitchTeamViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 				38B56785232C6DE3007960DB /* Info.plist */,
 				38B56799232FF7AC007960DB /* VBConstants.swift */,
 				38B56797232FF2C1007960DB /* VBMenuTableViewCell.swift */,
+				3861E6F5235404F800E08DA9 /* VBTableViewCellInfo.swift */,
 				382B0C2D2333FBEE003A4524 /* VBPersistentContainer.swift */,
 			);
 			path = VolleyballHub;
@@ -186,6 +192,7 @@
 				382B0C0B23335ECF003A4524 /* VolleyballHub.xcdatamodeld in Sources */,
 				38B5679A232FF7AC007960DB /* VBConstants.swift in Sources */,
 				38B5677C232C6DE1007960DB /* VBFullCourtViewController.swift in Sources */,
+				3861E6F6235404F800E08DA9 /* VBTableViewCellInfo.swift in Sources */,
 				38B56794232F0D7E007960DB /* VBBaseViewController.swift in Sources */,
 				38B5677A232C6DE1007960DB /* AppDelegate.swift in Sources */,
 				382B0C2E2333FBEE003A4524 /* VBPersistentContainer.swift in Sources */,
@@ -193,6 +200,7 @@
 				38B567A02332AB0A007960DB /* VBAddPlayerViewController.swift in Sources */,
 				38B56790232DA1D0007960DB /* VBHalfCourtViewController.swift in Sources */,
 				38B56796232F4FA9007960DB /* VBMenuViewController.swift in Sources */,
+				38F81FC0234E8B7100EC0A51 /* VBSwitchTeamViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
