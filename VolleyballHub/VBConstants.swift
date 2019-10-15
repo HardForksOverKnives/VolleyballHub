@@ -29,4 +29,15 @@ struct K {
             static let reuseID = "switchTeamCellReuseID"
         }
     }
+    
+    enum Positions: String {
+        case Setter = "Setter"
+        case Outside = "Outside"
+        case Middle = "Middle"
+        case Opposite = "Opposite"
+        case DefensiveSpecialist = "Defensive Specialist"
+        case Libero = "Libero"
+        
+        static let allValues: [String] = [Setter.rawValue, Outside.rawValue, Middle.rawValue, Opposite.rawValue, DefensiveSpecialist.rawValue, Libero.rawValue]
+    }
 }

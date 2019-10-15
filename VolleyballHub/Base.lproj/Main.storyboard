@@ -309,17 +309,105 @@
             </objects>
             <point key="canvasLocation" x="3540" y="-162"/>
         </scene>
-        <!--Add Player View Controller-->
+        <!--Edit Player View Controller-->
         <scene sceneID="7uw-5z-APl">
             <objects>
-                <viewController id="ZvE-zc-dZy" customClass="VBAddPlayerViewController" customModule="VolleyballHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZvE-zc-dZy" customClass="VBEditPlayerViewController" customModule="VolleyballHub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uaL-hT-6l6">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uvy-Ya-rFK">
+                                <rect key="frame" x="20" y="92" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5nP-1e-m77">
+                                <rect key="frame" x="90" y="85.5" width="658" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="continue" textContentType="name"/>
+                                <connections>
+                                    <action selector="nameTextFieldEditingDidEnd:" destination="ZvE-zc-dZy" eventType="editingDidEnd" id="zqv-Ru-UmG"/>
+                                    <action selector="nameTextFieldPrimaryActionTriggered:" destination="ZvE-zc-dZy" eventType="primaryActionTriggered" id="hWF-y9-tRf"/>
+                                </connections>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1te-12-3C2">
+                                <rect key="frame" x="0.0" y="273.5" width="768" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strongest Position" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ce7-0A-yuy">
+                                <rect key="frame" x="313.5" y="242.5" width="141" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Second Strongest Position" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UdJ-Ql-mPs">
+                                <rect key="frame" x="282.5" y="539.5" width="203" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Om-RD-Rsc">
+                                <rect key="frame" x="0.0" y="570.5" width="768" height="216"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHc-he-snM">
+                                <rect key="frame" x="344.5" y="882" width="79" height="57"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="ZvE-zc-dZy" eventType="touchUpInside" id="EKt-N8-EwV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jersey Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47T-v0-9h8">
+                                <rect key="frame" x="20" y="165" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xHu-w1-leH">
+                                <rect key="frame" x="167" y="158.5" width="581" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="jerseyNumberTextFieldEditingDidEnd:" destination="ZvE-zc-dZy" eventType="editingDidEnd" id="v98-Wk-j8V"/>
+                                    <action selector="jerseyNumberTextFieldPrimaryActionTriggered:" destination="ZvE-zc-dZy" eventType="primaryActionTriggered" id="1Yd-Cj-alZ"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vRR-sN-Dgv" firstAttribute="trailing" secondItem="5nP-1e-m77" secondAttribute="trailing" constant="20" id="2TK-dZ-dIU"/>
+                            <constraint firstItem="xHu-w1-leH" firstAttribute="centerY" secondItem="47T-v0-9h8" secondAttribute="centerY" id="33J-Dd-svk"/>
+                            <constraint firstItem="Uvy-Ya-rFK" firstAttribute="leading" secondItem="vRR-sN-Dgv" secondAttribute="leading" constant="20" id="7zZ-hs-4uv"/>
+                            <constraint firstItem="vRR-sN-Dgv" firstAttribute="trailing" secondItem="xHu-w1-leH" secondAttribute="trailing" constant="20" id="8Vt-64-51V"/>
+                            <constraint firstItem="rHc-he-snM" firstAttribute="centerX" secondItem="uaL-hT-6l6" secondAttribute="centerX" id="Etn-iH-C4S"/>
+                            <constraint firstItem="3Om-RD-Rsc" firstAttribute="top" secondItem="UdJ-Ql-mPs" secondAttribute="bottom" constant="10" id="GTr-ko-dHE"/>
+                            <constraint firstItem="1te-12-3C2" firstAttribute="top" secondItem="Ce7-0A-yuy" secondAttribute="bottom" constant="10" id="LDk-jb-LSi"/>
+                            <constraint firstItem="1te-12-3C2" firstAttribute="leading" secondItem="vRR-sN-Dgv" secondAttribute="leading" id="NDR-ca-0M4"/>
+                            <constraint firstItem="5nP-1e-m77" firstAttribute="leading" secondItem="Uvy-Ya-rFK" secondAttribute="trailing" constant="20" id="NxJ-ne-AeM"/>
+                            <constraint firstItem="Ce7-0A-yuy" firstAttribute="centerX" secondItem="uaL-hT-6l6" secondAttribute="centerX" id="Oy1-4a-LEz"/>
+                            <constraint firstItem="UdJ-Ql-mPs" firstAttribute="top" secondItem="1te-12-3C2" secondAttribute="bottom" constant="50" id="P6t-sA-HNd"/>
+                            <constraint firstItem="Ce7-0A-yuy" firstAttribute="top" secondItem="xHu-w1-leH" secondAttribute="bottom" constant="50" id="PSZ-lc-uRf"/>
+                            <constraint firstItem="xHu-w1-leH" firstAttribute="leading" secondItem="47T-v0-9h8" secondAttribute="trailing" constant="25" id="Pmv-H0-f58"/>
+                            <constraint firstItem="47T-v0-9h8" firstAttribute="top" secondItem="5nP-1e-m77" secondAttribute="bottom" constant="45.5" id="Vzq-TS-VAu"/>
+                            <constraint firstItem="5nP-1e-m77" firstAttribute="centerY" secondItem="Uvy-Ya-rFK" secondAttribute="centerY" id="Wlt-is-2ug"/>
+                            <constraint firstItem="3Om-RD-Rsc" firstAttribute="leading" secondItem="vRR-sN-Dgv" secondAttribute="leading" id="XdX-p5-KHe"/>
+                            <constraint firstItem="3Om-RD-Rsc" firstAttribute="trailing" secondItem="vRR-sN-Dgv" secondAttribute="trailing" id="aQD-Q6-TFe"/>
+                            <constraint firstItem="1te-12-3C2" firstAttribute="trailing" secondItem="vRR-sN-Dgv" secondAttribute="trailing" id="cKj-RZ-luO"/>
+                            <constraint firstItem="UdJ-Ql-mPs" firstAttribute="centerX" secondItem="uaL-hT-6l6" secondAttribute="centerX" id="cg6-FF-MFF"/>
+                            <constraint firstItem="Uvy-Ya-rFK" firstAttribute="top" secondItem="vRR-sN-Dgv" secondAttribute="top" constant="42" id="dAk-dN-cu8"/>
+                            <constraint firstItem="47T-v0-9h8" firstAttribute="leading" secondItem="vRR-sN-Dgv" secondAttribute="leading" constant="20" id="qGz-Pp-mTp"/>
+                            <constraint firstItem="vRR-sN-Dgv" firstAttribute="bottom" secondItem="rHc-he-snM" secondAttribute="bottom" constant="85" id="qe0-mR-luQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vRR-sN-Dgv"/>
                     </view>
                     <navigationItem key="navigationItem" id="fRk-3h-NHs"/>
+                    <connections>
+                        <outlet property="jerseyNumberTextField" destination="xHu-w1-leH" id="Ct1-xT-Xr4"/>
+                        <outlet property="nameTextField" destination="5nP-1e-m77" id="PDf-3d-tyq"/>
+                        <outlet property="secondStrongestPositionPicker" destination="3Om-RD-Rsc" id="UV9-ig-z4m"/>
+                        <outlet property="strongestPositionPickerView" destination="1te-12-3C2" id="cfk-Zh-2cq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kni-bj-VBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

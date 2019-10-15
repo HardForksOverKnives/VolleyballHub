@@ -65,6 +65,35 @@ class VBTeamManager {
         return success
     }
     
+    static func playersOnCurrentTeam(context: NSManagedObjectContext) -> [VBPlayerMO]? {
+        if let team = getCurrentTeam(context: context) {
+            if let players = team.players?.allObjects as! [VBPlayerMO]? {
+                return players
+            }
+        }
+        return nil
+    }
+    
+    static func addPlayerToCurrentTeam(name: String, strongestPosition: String, secondStrongestPosition: String, number: Int16, container: VBPersistentContainer) -> Bool {
+        if let team = getCurrentTeam(context: container.viewContext) {
+            if let player = playerWithUniqueNumber(name: name, strongestPosition: strongestPosition, secondStrongestPosition: secondStrongestPosition, number: number, team: team, context: container.viewContext) {
+                team.addToPlayers(player)
+                container.saveContext()
+                return true
+            }
+        }
+        return false
+    }
+    
+    static private func playerWithUniqueNumber(name: String, strongestPosition: String, secondStrongestPosition: String, number: Int16, team: VBTeamMO, context: NSManagedObjectContext) -> VBPlayerMO? {
+        let player = NSEntityDescription.insertNewObject(forEntityName: "VBPlayer", into: context) as! VBPlayerMO
+        player.name = name
+        player.position1 = strongestPosition
+        player.position2 = secondStrongestPosition
+        player.number = number
+        return player
+    }
+    
     // returns new VBteamMO if name isn't already taken
     static private func teamWithUniqueName(name: String, coach: String, context: NSManagedObjectContext) -> VBTeamMO? {
         if (getTeamWithName(name: name, context: context) != nil) {

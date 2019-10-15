@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="VBPlayer" representedClassName="VBPlayerMO" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="position1" optional="YES" attributeType="String"/>
+        <attribute name="position2" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="VBTeam" representedClassName="VBTeamMO" syncable="YES" codeGenerationType="class">
         <attribute name="coach" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VBPlayer"/>
     </entity>
     <elements>
-        <element name="VBTeam" positionX="-63" positionY="-18" width="300.5078125" height="73"/>
+        <element name="VBTeam" positionX="-63" positionY="-18" width="300.5078125" height="88"/>
+        <element name="VBPlayer" positionX="317.7890625" positionY="104.609375" width="128" height="103"/>
     </elements>
 </model>

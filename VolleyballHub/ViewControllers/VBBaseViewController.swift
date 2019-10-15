@@ -9,7 +9,8 @@
 import UIKit
 
 class VBBaseViewController: UIViewController {
-
+    typealias EmptyMethodHandler = () -> Void
+    
     var container: VBPersistentContainer?
     
     override func viewDidLoad() {
@@ -17,9 +18,13 @@ class VBBaseViewController: UIViewController {
     }
     
     
-    func showSimpleAlert(title: String, body: String, buttonText: String = "OK") {
+    func showSimpleAlert(title: String, body: String, buttonText: String = "OK", completion: EmptyMethodHandler? = nil) {
         let alert = UIAlertController(title: title, message: body, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: buttonText, style: .cancel))
+        if let f = completion {
+            alert.addAction(UIAlertAction(title: buttonText, style: .cancel, handler: {action in f()}))
+        } else {
+            alert.addAction(UIAlertAction(title: buttonText, style: .cancel))
+        }
         self.present(alert, animated: true)
     }
     
