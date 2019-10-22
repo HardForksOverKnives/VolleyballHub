@@ -13,7 +13,7 @@ class VBEditPlayerViewController: VBBaseViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var jerseyNumberTextField: UITextField!
     @IBOutlet weak var strongestPositionPickerView: UIPickerView!
-    @IBOutlet weak var secondStrongestPositionPicker: UIPickerView!
+    @IBOutlet weak var secondStrongestPositionPickerView: UIPickerView!
     
     var name: String?
     var jerseyNumber: Int16?
@@ -24,10 +24,17 @@ class VBEditPlayerViewController: VBBaseViewController, UIPickerViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initializePickerViews()
+    }
+    
+    private func initializePickerViews() {
+        
+        strongestPosition = K.Positions.allValues.first
+        secondStrongestPosition = K.Positions.allValues.first
         self.strongestPositionPickerView.delegate = self
         self.strongestPositionPickerView.dataSource = self
-        self.secondStrongestPositionPicker.delegate = self
-        self.secondStrongestPositionPicker.dataSource = self
+        self.secondStrongestPositionPickerView.delegate = self
+        self.secondStrongestPositionPickerView.dataSource = self
     }
     
     @IBAction func nameTextFieldPrimaryActionTriggered(_ sender: Any) {
@@ -71,7 +78,38 @@ class VBEditPlayerViewController: VBBaseViewController, UIPickerViewDelegate, UI
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        VBTeamManager.addPlayerToCurrentTeam(name: "Marlee", strongestPosition: K.Positions.Outside.rawValue, secondStrongestPosition: K.Positions.Opposite.rawValue, number: 21, container: container!)
+        resignAttention()
+        
+        if (validatePlayerData() == false) {
+            showSimpleAlert(title: "Error", body: "Please enter all player information.")
+        } else {
+            if (VBTeamManager.addPlayerToCurrentTeam(name: name!, strongestPosition: strongestPosition!, secondStrongestPosition: secondStrongestPosition!, number: jerseyNumber!, container: container!) == true) {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                showSimpleAlert(title: "Error", body: "There was a problem saving the player")
+            }
+        }
+    }
+    
+    private func validatePlayerData() -> Bool {
+        var dataIsValid = false
+        
+        switch (name, strongestPosition, secondStrongestPosition, jerseyNumber) {
+        case let (.some, .some(strongestPosition), .some(secondStrongestPosition), .some):
+            if (strongestPosition != secondStrongestPosition) {
+                dataIsValid = true
+            }
+        default:
+            break
+        }
+        
+        return dataIsValid
+    }
+    
+    private func resignAttention() {
+        for textField in self.view.subviews where textField is UITextField {
+            textField.resignFirstResponder()
+        }
     }
     
     
@@ -87,6 +125,15 @@ class VBEditPlayerViewController: VBBaseViewController, UIPickerViewDelegate, UI
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return K.Positions.allValues[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let position = K.Positions.allValues[row]
+        if (pickerView == strongestPositionPickerView) {
+            strongestPosition = position
+        } else if (pickerView == secondStrongestPositionPickerView) {
+            secondStrongestPosition = position
+        }
     }
 
     /*
