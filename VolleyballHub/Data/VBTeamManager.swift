@@ -118,4 +118,9 @@ class VBTeamManager {
             fatalError("Failed to fetch teams: \(error)")
         }
     }
+    
+//    ipad pro 9.7: /Users/connordunham/Library/Developer/CoreSimulator/Devices/3E1A21E7-1F9C-4740-B168-6E0028962FB1/data/Containers/Data/Application/B460A429-A1E2-489D-B680-742280D07957/Library/
+    static func printDBLocation() {
+        print("SQLite DB file for simulator found here: ", FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).last ?? "Not Found!")
+    }
 }

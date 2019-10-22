@@ -22,8 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        //print("SQLite DB file for simulator found here: ", FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).last ?? "Not Found!")
-        
         return true
     }
 
