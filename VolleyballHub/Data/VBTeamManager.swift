@@ -74,6 +74,13 @@ class VBTeamManager {
         return nil
     }
     
+    static func playersOnCurrentTeamByNumber(context: NSManagedObjectContext) -> [VBPlayerMO]? {
+        if let team = playersOnCurrentTeam(context: context) {
+            return team.sorted(by: {$0.number < $1.number})
+        }
+        return nil
+    }
+    
     static func addPlayerToCurrentTeam(name: String, strongestPosition: String, secondStrongestPosition: String, number: Int16, container: VBPersistentContainer) -> Bool {
         if let team = getCurrentTeam(context: container.viewContext) {
             if let player = playerWithUniqueNumber(name: name, strongestPosition: strongestPosition, secondStrongestPosition: secondStrongestPosition, number: number, team: team, context: container.viewContext) {
