@@ -12,6 +12,8 @@ class VBRosterViewController: VBBaseViewController, UITableViewDelegate, UITable
 
     @IBOutlet weak var rosterTableView: UITableView!
     
+    private var playerToEdit: VBPlayerMO? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +21,13 @@ class VBRosterViewController: VBBaseViewController, UITableViewDelegate, UITable
         self.navigationItem.title = "Roster"
         let addPlayerButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPlayerPressed))
         self.navigationItem.rightBarButtonItems = [addPlayerButton]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.playerToEdit = nil
+        self.rosterTableView.selectRow(at: nil, animated: false, scrollPosition: .top)
     }
     
     @objc func addPlayerPressed() {
@@ -54,18 +63,29 @@ class VBRosterViewController: VBBaseViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        if let players = currentRoster() {
+            self.playerToEdit = players[indexPath.row]
+            self.performSegue(withIdentifier: K.SegueID.roster_editPlayer, sender: self)
+        }
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        switch (segue.identifier) {
+        case K.SegueID.roster_editPlayer:
+            if let editPlayerVC = segue.destination as? VBEditPlayerViewController {
+                editPlayerVC.playerToEdit = self.playerToEdit
+            }
+        default:
+            ()
+        }
     }
-    */
+    
 
 }

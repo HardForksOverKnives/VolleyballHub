@@ -14,23 +14,83 @@ class VBEditPlayerViewController: VBBaseViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var jerseyNumberTextField: UITextField!
     @IBOutlet weak var strongestPositionPickerView: UIPickerView!
     @IBOutlet weak var secondStrongestPositionPickerView: UIPickerView!
+    @IBOutlet weak var lockButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+    
+    var playerToEdit: VBPlayerMO?
     
     var name: String?
     var jerseyNumber: Int16?
     var strongestPosition: String?
     var secondStrongestPosition: String?
     
+    var editingIsLocked = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initializePickerViews()
+
+        if let player = playerToEdit {
+            initializeUIForPlayer(player: player)
+        } else {
+            initializeUIForNewPlayer()
+        }
+    }
+    
+    @IBAction func lockButtonPressed(_ sender: Any) {
+        editingIsLocked = !editingIsLocked
+        updateLockUI()
+        
+        if (editingIsLocked) {
+            saveUpdatedPlayer()
+        }
+    }
+    
+    private func updateLockUI() {
+        if (editingIsLocked) {
+            lockButton.setImage(UIImage(named: "lock.fill"), for: .normal)
+            for view in self.view.subviews {
+                view.isUserInteractionEnabled = false
+            }
+            
+        } else {
+            lockButton.setImage(UIImage(named: "lock.open.fill"), for: .normal)
+        }
+        
+        for view in self.view.subviews {
+            view.isUserInteractionEnabled = !editingIsLocked
+        }
+        self.lockButton.isUserInteractionEnabled = true
+    }
+        
+    private func initializeUIForNewPlayer() {
+        strongestPosition = K.Positions.allValues.first
+        secondStrongestPosition = K.Positions.allValues.first
+        lockButton.isHidden = true
+    }
+    
+    private func initializeUIForPlayer(player: VBPlayerMO) {
+        name = player.name
+        nameTextField.text = player.name!
+        jerseyNumber = player.number
+        jerseyNumberTextField.text = String(player.number)
+        strongestPosition = player.position1
+        secondStrongestPosition = player.position2
+        
+        if let row = K.Positions.allValues.firstIndex(of: player.position1!) {
+            strongestPositionPickerView.selectRow(row, inComponent: 0, animated: false)
+        }
+        if let row = K.Positions.allValues.firstIndex(of: player.position2!) {
+            secondStrongestPositionPickerView.selectRow(row, inComponent: 0, animated: false)
+        }
+        
+        saveButton.isHidden = true
+        updateLockUI()
     }
     
     private func initializePickerViews() {
-        
-        strongestPosition = K.Positions.allValues.first
-        secondStrongestPosition = K.Positions.allValues.first
         self.strongestPositionPickerView.delegate = self
         self.strongestPositionPickerView.dataSource = self
         self.secondStrongestPositionPickerView.delegate = self
@@ -88,6 +148,21 @@ class VBEditPlayerViewController: VBBaseViewController, UIPickerViewDelegate, UI
             } else {
                 showSimpleAlert(title: "Error", body: "There was a problem saving the player")
             }
+        }
+    }
+    
+    private func saveUpdatedPlayer() {
+        resignAttention()
+        
+        if (validatePlayerData() == false) {
+            showSimpleAlert(title: "Error", body: "Please enter all player information.")
+        }
+        else if let player = playerToEdit {
+            player.name = name!
+            player.number = jerseyNumber!
+            player.position1 = strongestPosition!
+            player.position2 = secondStrongestPosition!
+            self.container?.saveContext()
         }
     }
     
