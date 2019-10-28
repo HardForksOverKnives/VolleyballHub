@@ -101,7 +101,8 @@
                         <outlet property="teamNameLabel" destination="VSz-YL-f7V" id="9KZ-cl-ayN"/>
                         <segue destination="VFA-Ed-eIv" kind="show" identifier="Menu_CreateTeam" id="u8O-ru-He7"/>
                         <segue destination="oOJ-dK-eI6" kind="show" identifier="Menu_SwitchTeam" id="bMd-df-saz"/>
-                        <segue destination="ZvE-zc-dZy" kind="show" identifier="Menu_EditRoster" id="2m2-Zv-nn1"/>
+                        <segue destination="ZvE-zc-dZy" kind="show" identifier="" id="2m2-Zv-nn1"/>
+                        <segue destination="wQr-GX-PRm" kind="show" identifier="Menu_EditRoster" id="EVg-3c-bUQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OBC-CZ-OFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -265,14 +266,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="switchTeamCellReuseID" id="sb2-v9-P0d" customClass="VBMenuTableViewCell" customModule="VolleyballHub" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="768" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="768" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sb2-v9-P0d" id="xmc-rL-p47">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0m-o4-eGR">
-                                                    <rect key="frame" x="35" y="21" width="42" height="21.5"/>
+                                                    <rect key="frame" x="35" y="21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -308,6 +309,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcw-Qc-OZ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3540" y="-162"/>
+        </scene>
+        <!--Roster View Controller-->
+        <scene sceneID="aao-b1-OR4">
+            <objects>
+                <viewController id="wQr-GX-PRm" customClass="VBRosterViewController" customModule="VolleyballHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NgB-3Q-MG5">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u86-ff-ghf">
+                                <rect key="frame" x="20" y="50" width="728" height="974"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="playerCellReuseID" id="Snm-Qr-52E" customClass="VBPlayerTableViewCell" customModule="VolleyballHub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="728" height="88"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Snm-Qr-52E" id="6cA-wg-3mW">
+                                            <rect key="frame" x="0.0" y="0.0" width="728" height="88"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdY-97-Jpy">
+                                                    <rect key="frame" x="35" y="21" width="39.5" height="46"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9ir-YS-ZgN">
+                                                    <rect key="frame" x="134.5" y="21" width="184" height="46"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="X6c-YB-76I">
+                                                    <rect key="frame" x="526" y="10" width="182" height="68"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AdY-97-Jpy" firstAttribute="leading" secondItem="6cA-wg-3mW" secondAttribute="leadingMargin" constant="20" id="0ku-QW-2hk"/>
+                                                <constraint firstItem="AdY-97-Jpy" firstAttribute="top" secondItem="6cA-wg-3mW" secondAttribute="topMargin" constant="10" id="AQp-4I-bt1"/>
+                                                <constraint firstAttribute="trailing" secondItem="X6c-YB-76I" secondAttribute="trailing" constant="20" id="CCm-TI-56f"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="AdY-97-Jpy" secondAttribute="bottom" constant="10" id="CJW-m5-rgs"/>
+                                                <constraint firstItem="X6c-YB-76I" firstAttribute="top" secondItem="6cA-wg-3mW" secondAttribute="top" constant="10" id="NvZ-Qy-dXj"/>
+                                                <constraint firstItem="9ir-YS-ZgN" firstAttribute="top" secondItem="6cA-wg-3mW" secondAttribute="topMargin" constant="10" id="WF0-SS-5gB"/>
+                                                <constraint firstItem="X6c-YB-76I" firstAttribute="width" secondItem="6cA-wg-3mW" secondAttribute="width" multiplier="1:4" id="p7c-hi-ZCh"/>
+                                                <constraint firstAttribute="bottom" secondItem="X6c-YB-76I" secondAttribute="bottom" constant="10" id="pVG-Do-FpA"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9ir-YS-ZgN" secondAttribute="bottom" constant="10" id="qB8-LK-wV6"/>
+                                                <constraint firstItem="9ir-YS-ZgN" firstAttribute="leading" secondItem="AdY-97-Jpy" secondAttribute="trailing" constant="60" id="qI8-k1-tsr"/>
+                                                <constraint firstItem="X6c-YB-76I" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9ir-YS-ZgN" secondAttribute="trailing" constant="20" id="tT6-sX-0yX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="playerNameLabel" destination="9ir-YS-ZgN" id="gQ6-NS-LV5"/>
+                                            <outlet property="playerNumberLabel" destination="AdY-97-Jpy" id="Ud2-5x-p0L"/>
+                                            <outlet property="playerPositionsStackView" destination="X6c-YB-76I" id="n4u-Hh-9he"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wQr-GX-PRm" id="2AJ-Km-XEf"/>
+                                    <outlet property="delegate" destination="wQr-GX-PRm" id="EGm-2v-uuQ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="u86-ff-ghf" secondAttribute="trailing" id="Ky3-O7-9kC"/>
+                            <constraint firstItem="zlJ-H9-TCR" firstAttribute="bottom" secondItem="u86-ff-ghf" secondAttribute="bottom" id="Wsc-TM-Gsz"/>
+                            <constraint firstItem="u86-ff-ghf" firstAttribute="top" secondItem="zlJ-H9-TCR" secondAttribute="top" id="XB6-tV-beJ"/>
+                            <constraint firstItem="u86-ff-ghf" firstAttribute="leading" secondItem="NgB-3Q-MG5" secondAttribute="leadingMargin" id="xZ0-5h-bp2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zlJ-H9-TCR"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="a7V-0x-Pko"/>
+                    <connections>
+                        <outlet property="rosterTableView" destination="u86-ff-ghf" id="XmG-dY-sa9"/>
+                        <segue destination="ZvE-zc-dZy" kind="show" identifier="Roster_EditPlayer" id="Hwr-cq-RNR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JGe-I9-yvg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4259" y="-590"/>
         </scene>
         <!--Edit Player View Controller-->
         <scene sceneID="7uw-5z-APl">
@@ -526,5 +608,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rns-JR-C4V"/>
+        <segue reference="Hwr-cq-RNR"/>
     </inferredMetricsTieBreakers>
 </document>

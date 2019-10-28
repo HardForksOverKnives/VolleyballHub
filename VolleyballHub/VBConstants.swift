@@ -28,6 +28,14 @@ struct K {
         struct SwitchTeam {
             static let reuseID = "switchTeamCellReuseID"
         }
+        
+        struct Roster {
+            static let reuseID = "playerCellReuseID"
+        }
+    }
+    
+    struct SegueID {
+        static let roster_editPlayer = "Roster_EditPlayer"
     }
     
     enum Positions: String {

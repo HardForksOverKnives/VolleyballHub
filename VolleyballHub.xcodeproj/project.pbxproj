@@ -12,6 +12,8 @@
 		382B0C2E2333FBEE003A4524 /* VBPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382B0C2D2333FBEE003A4524 /* VBPersistentContainer.swift */; };
 		3861E6F6235404F800E08DA9 /* VBTableViewCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861E6F5235404F800E08DA9 /* VBTableViewCellInfo.swift */; };
 		387091B5235446580026C1DC /* VBEditPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387091B4235446580026C1DC /* VBEditPlayerViewController.swift */; };
+		3879051423622C130087BD7E /* VBRosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3879051323622C130087BD7E /* VBRosterViewController.swift */; };
+		3879051623622F600087BD7E /* VBPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3879051523622F600087BD7E /* VBPlayerTableViewCell.swift */; };
 		38B5677A232C6DE1007960DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B56779232C6DE1007960DB /* AppDelegate.swift */; };
 		38B5677C232C6DE1007960DB /* VBFullCourtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5677B232C6DE1007960DB /* VBFullCourtViewController.swift */; };
 		38B5677F232C6DE1007960DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B5677D232C6DE1007960DB /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 		382B0C2D2333FBEE003A4524 /* VBPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBPersistentContainer.swift; sourceTree = "<group>"; };
 		3861E6F5235404F800E08DA9 /* VBTableViewCellInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTableViewCellInfo.swift; sourceTree = "<group>"; };
 		387091B4235446580026C1DC /* VBEditPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBEditPlayerViewController.swift; sourceTree = "<group>"; };
+		3879051323622C130087BD7E /* VBRosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBRosterViewController.swift; sourceTree = "<group>"; };
+		3879051523622F600087BD7E /* VBPlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		38B56776232C6DE1007960DB /* VolleyballHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VolleyballHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B56779232C6DE1007960DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38B5677B232C6DE1007960DB /* VBFullCourtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBFullCourtViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 				38B5679B23300717007960DB /* VBCreateTeamViewController.swift */,
 				38F81FBF234E8B7100EC0A51 /* VBSwitchTeamViewController.swift */,
 				387091B4235446580026C1DC /* VBEditPlayerViewController.swift */,
+				3879051323622C130087BD7E /* VBRosterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 				38B56797232FF2C1007960DB /* VBMenuTableViewCell.swift */,
 				3861E6F5235404F800E08DA9 /* VBTableViewCellInfo.swift */,
 				382B0C2D2333FBEE003A4524 /* VBPersistentContainer.swift */,
+				3879051523622F600087BD7E /* VBPlayerTableViewCell.swift */,
 			);
 			path = VolleyballHub;
 			sourceTree = "<group>";
@@ -199,7 +205,9 @@
 				38B5679C23300717007960DB /* VBCreateTeamViewController.swift in Sources */,
 				38B56790232DA1D0007960DB /* VBHalfCourtViewController.swift in Sources */,
 				387091B5235446580026C1DC /* VBEditPlayerViewController.swift in Sources */,
+				3879051423622C130087BD7E /* VBRosterViewController.swift in Sources */,
 				38B56796232F4FA9007960DB /* VBMenuViewController.swift in Sources */,
+				3879051623622F600087BD7E /* VBPlayerTableViewCell.swift in Sources */,
 				38F81FC0234E8B7100EC0A51 /* VBSwitchTeamViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
