@@ -92,6 +92,12 @@ class VBTeamManager {
         return false
     }
     
+    static func removePlayer(player: VBPlayerMO, fromTeam: VBTeamMO, container: VBPersistentContainer) {
+        fromTeam.removeFromPlayers(player)
+        container.viewContext.delete(player)
+        container.saveContext()
+    }
+    
     static private func playerWithUniqueNumber(name: String, strongestPosition: String, secondStrongestPosition: String, number: Int16, team: VBTeamMO, context: NSManagedObjectContext) -> VBPlayerMO? {
         let player = NSEntityDescription.insertNewObject(forEntityName: "VBPlayer", into: context) as! VBPlayerMO
         player.name = name

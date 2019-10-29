@@ -27,6 +27,7 @@ class VBRosterViewController: VBBaseViewController, UITableViewDelegate, UITable
         super.viewWillAppear(animated)
         
         self.playerToEdit = nil
+        self.rosterTableView.reloadData()
         self.rosterTableView.selectRow(at: nil, animated: false, scrollPosition: .top)
     }
     
@@ -67,6 +68,20 @@ class VBRosterViewController: VBBaseViewController, UITableViewDelegate, UITable
             self.playerToEdit = players[indexPath.row]
             self.performSegue(withIdentifier: K.SegueID.roster_editPlayer, sender: self)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            if let players = self.currentRoster() {
+                let team = VBTeamManager.getCurrentTeam(context: self.container!.viewContext)!
+                let player = players[indexPath.row]
+                VBTeamManager.removePlayer(player: player, fromTeam: team, container: self.container!)
+                
+                self.rosterTableView.reloadData()
+            }
+        }
+
+        return [delete]
     }
     
 
