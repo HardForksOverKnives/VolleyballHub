@@ -11,6 +11,8 @@
 		382B0C0B23335ECF003A4524 /* VolleyballHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 382B0C0923335ECF003A4524 /* VolleyballHub.xcdatamodeld */; };
 		382B0C2E2333FBEE003A4524 /* VBPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382B0C2D2333FBEE003A4524 /* VBPersistentContainer.swift */; };
 		3861E6F6235404F800E08DA9 /* VBTableViewCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861E6F5235404F800E08DA9 /* VBTableViewCellInfo.swift */; };
+		386D837623690A2C004E9797 /* VBMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386D837523690A2C004E9797 /* VBMatch.swift */; };
+		386D837823690A43004E9797 /* VBSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386D837723690A43004E9797 /* VBSet.swift */; };
 		387091B5235446580026C1DC /* VBEditPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387091B4235446580026C1DC /* VBEditPlayerViewController.swift */; };
 		3879051423622C130087BD7E /* VBRosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3879051323622C130087BD7E /* VBRosterViewController.swift */; };
 		3879051623622F600087BD7E /* VBPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3879051523622F600087BD7E /* VBPlayerTableViewCell.swift */; };
@@ -33,6 +35,8 @@
 		382B0C0A23335ECF003A4524 /* VolleyballHub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VolleyballHub.xcdatamodel; sourceTree = "<group>"; };
 		382B0C2D2333FBEE003A4524 /* VBPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBPersistentContainer.swift; sourceTree = "<group>"; };
 		3861E6F5235404F800E08DA9 /* VBTableViewCellInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTableViewCellInfo.swift; sourceTree = "<group>"; };
+		386D837523690A2C004E9797 /* VBMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBMatch.swift; sourceTree = "<group>"; };
+		386D837723690A43004E9797 /* VBSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBSet.swift; sourceTree = "<group>"; };
 		387091B4235446580026C1DC /* VBEditPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBEditPlayerViewController.swift; sourceTree = "<group>"; };
 		3879051323622C130087BD7E /* VBRosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBRosterViewController.swift; sourceTree = "<group>"; };
 		3879051523622F600087BD7E /* VBPlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBPlayerTableViewCell.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				3802F560233BD15700C67DC6 /* VBTeamManager.swift */,
+				386D837523690A2C004E9797 /* VBMatch.swift */,
+				386D837723690A43004E9797 /* VBSet.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -193,9 +199,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				386D837623690A2C004E9797 /* VBMatch.swift in Sources */,
 				3802F561233BD15700C67DC6 /* VBTeamManager.swift in Sources */,
 				38B56798232FF2C1007960DB /* VBMenuTableViewCell.swift in Sources */,
 				382B0C0B23335ECF003A4524 /* VolleyballHub.xcdatamodeld in Sources */,
+				386D837823690A43004E9797 /* VBSet.swift in Sources */,
 				38B5679A232FF7AC007960DB /* VBConstants.swift in Sources */,
 				38B5677C232C6DE1007960DB /* VBFullCourtViewController.swift in Sources */,
 				3861E6F6235404F800E08DA9 /* VBTableViewCellInfo.swift in Sources */,
